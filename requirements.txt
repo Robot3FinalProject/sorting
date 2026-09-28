@@ -1,0 +1,5 @@
+# Pin the upstream OMX/dataset API to the source version used by the collector.
+lerobot[dynamixel,intelrealsense] @ git+https://github.com/huggingface/lerobot.git@8fff0fde7c79f23a93d845d1a50e985de01f8b8a
+numpy==2.2.6
+datasets==4.8.5
+dynamixel-sdk==3.8.4
