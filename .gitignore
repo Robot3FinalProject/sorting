@@ -6,3 +6,6 @@ outputs/
 config/cameras.local.json
 config/hardware.local.env
 *.egg-info/
+.agents/
+.codex/
+.aws/

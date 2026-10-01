@@ -1,0 +1,43 @@
+{
+  "repository": "https://github.com/Robot3FinalProject/robotarm",
+  "commit": "abe9e13357e1be549500712b62c5582649d444ab",
+  "date": "2026-10-01",
+  "files": [
+    {
+      "path": "src/sorting_station/hcr/modbus_test_server.py",
+      "sha256": "b3a67a4d49dd42ad336a5a2fc0eeab290c55cd07e16e2dc42cc0b53cdfc00130"
+    },
+    {
+      "path": "src/sorting_station/hcr/run_d435_preview.sh",
+      "sha256": "fff63b771cb52c63294af4130b0352b83ed0bae4e739af5dca6ec54c3fd5cf80"
+    },
+    {
+      "path": "src/sorting_station/hcr/realsense_camera.py",
+      "sha256": "70248314e02da92da1b04c370f7224d77b875c630d896bdc3e0c254800a26a39"
+    },
+    {
+      "path": "src/sorting_station/hcr/test_zone_preview.py",
+      "sha256": "b36634442405d5e0e8e34df16f858703bf13ff65f022a373c18c71263669f858"
+    },
+    {
+      "path": "src/sorting_station/hcr/README.md",
+      "sha256": "810f665cee669ad4705ac412bd2ceb8474fca43d67b62488edfc35ed2ed4bb7a"
+    },
+    {
+      "path": "src/sorting_station/hcr/zone_preview.py",
+      "sha256": "a26e49c92256e65cc44187e25b5329f411f9760049f1cd5472b8ca41edc0f8f1"
+    },
+    {
+      "path": "src/sorting_station/hcr/zone_modbus_bridge.py",
+      "sha256": "8058d83407e5d3252f3a9924923fd2bef0a5c8464c3b5000f5f337777ecdf43b"
+    },
+    {
+      "path": "src/sorting_station/HCR3A_CURRENT_HANDOFF.md",
+      "sha256": "24e0574346fbab8f41f796b13df5650bc337e5851ae84aadf0c6f18057e8dcde"
+    },
+    {
+      "path": "src/sorting_station/HCR3A_SORTING_HANDOFF.md",
+      "sha256": "232575094a045f7d9f573be262d07527347d033bbd34a22db2808584e1ccf685"
+    }
+  ]
+}

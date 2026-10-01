@@ -1,4 +1,17 @@
-# Sorting — OMX 실물 파프리카 시연 수집
+# Sorting — HCR-3A 제어 및 OMX 시연 수집
+
+## HCR-3A 작업
+
+HCR-3A의 D435 A/B/C/D 색상 후보 미리보기와 읽기 전용 Modbus TCP 도구를 포함합니다. 현재 후보는 START 명령이 아니며 로봇 이동·그리퍼 제어·완료 handshake는 미구현입니다.
+
+- [현재 인계](src/sorting_station/HCR3A_CURRENT_HANDOFF.md)
+- [설치·실행 안내](src/sorting_station/hcr/README.md)
+- [HCR 파일 구성과 검증](docs/HCR_WORKSPACE.md)
+- [HCR 설계 결정](docs/DECISIONS.md), [임시 인터페이스](docs/INTERFACES.md)
+
+기존 OMX 시연 수집 코드·설정·보정 파일은 아래 안내와 함께 보존합니다. 두 환경의 생성물은 Git에서 제외됩니다.
+
+## OMX 실물 파프리카 시연 수집
 
 OMX-L 리더 + OMX-F 팔로워, 상단 D435와 손목 USB 카메라로 **실물 모방학습 데이터**를 수집한다. Isaac Sim/Lab, ROS, 기존 manyfarm 작업공간 없이 실행한다.
 
