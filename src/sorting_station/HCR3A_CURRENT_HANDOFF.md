@@ -1,3 +1,5 @@
+> **2026-10-01 후속 구현:** 이 파일의 후보 미리보기 이후 ROS 배치 실행기를 추가했다. 현재 실행/Modbus handshake/웹캠 명령은 [hcr_sorting/README.md](hcr_sorting/README.md)를 우선 참고한다. PC코드와모의통합시험완료,실제Rodi BUSY/DONE 프로그램과물리운반은검증전이다.
+
 # HCR-3A 선별장 인계 — 2026-10-01
 
 다른 노트북의 Codex가 이 파일부터 읽도록 작성했다. 이 문서는 **현장 확인값**, **현재 코드**, **미확정 설계**를 구분한다. 저장소 경로는 새 노트북의 checkout 위치에 맞춰 바꾼다. 프로젝트 공통 지침은 루트 `AGENTS.md`, `docs/PROJECT_CONTEXT.md`, `docs/TEAM_ROLES.md`, `docs/DECISIONS.md`를 따른다. 이전 기획은 `HCR3A_SORTING_HANDOFF.md`, 실행 세부사항은 `hcr/README.md`에 있다. **이전 기획 문서에 적힌 HCR IP `192.168.3.1`은 오래된 오기이며 아래 실측 IP가 맞다.**

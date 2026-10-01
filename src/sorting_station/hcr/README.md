@@ -1,7 +1,9 @@
+> **2026-10-01 최신 배치 실행기:** 관제 ROS Goal → 웹캠 → HCR BUSY/DONE → 개수·완료 보고는 [hcr_sorting/README.md](../hcr_sorting/README.md)를 따른다. 아래 프로그램은 개별 카메라/읽기 통신 진단용이며, 실행기와 Modbus 포트502를 동시에 사용하지 않는다.
+
 # 현재 연결된 D435 실행 (2026-09-29)
 
 ```bash
-cd /home/ubuntu/manyfarm_ws/sorting
+cd /home/bhc/manyfarm_ws/manyfarm_robotarm
 bash src/sorting_station/hcr/run_d435_preview.sh
 ```
 
@@ -31,7 +33,7 @@ SDK 참고: https://github.com/realsenseai/librealsense/tree/master/wrappers/pyt
 펜던트: 디바이스 PC / IP 192.168.3.2 / Slave ID 1. 신호 PC_TEST / Signal Address 0 / Register Input / 수량 1 / 10 Hz.
 
 ```bash
-cd /home/ubuntu/manyfarm_ws/sorting
+cd /home/bhc/manyfarm_ws/manyfarm_robotarm
 sudo /usr/bin/python3 src/sorting_station/hcr/modbus_test_server.py
 ```
 
@@ -50,7 +52,7 @@ sudo /usr/bin/python3 src/sorting_station/hcr/modbus_test_server.py
 터미널 1 — 카메라와 더미 데이터 생성:
 
 ```bash
-cd /home/ubuntu/manyfarm_ws/sorting
+cd /home/bhc/manyfarm_ws/manyfarm_robotarm
 /usr/bin/python3 src/sorting_station/hcr/zone_preview.py --backend opencv --camera 0
 ```
 
@@ -66,7 +68,7 @@ cd /home/ubuntu/manyfarm_ws/sorting
 터미널 2 — HCR에 실제 후보값 전달(선택): 기존123/310 서버를 Ctrl+C로 종료한 후 실행한다.
 
 ```bash
-cd /home/ubuntu/manyfarm_ws/sorting
+cd /home/bhc/manyfarm_ws/manyfarm_robotarm
 sudo /usr/bin/python3 src/sorting_station/hcr/zone_modbus_bridge.py
 ```
 

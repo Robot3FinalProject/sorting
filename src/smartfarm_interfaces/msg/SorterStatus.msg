@@ -1,0 +1,11 @@
+string robot_id
+string current_task_id
+string current_batch_id
+string state
+bool receive_ready
+bool ready
+string error_code
+string error_message
+string boot_id
+uint64 sequence
+string timestamp

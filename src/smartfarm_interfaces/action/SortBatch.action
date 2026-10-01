@@ -1,0 +1,22 @@
+string robot_id
+string task_id
+string batch_id
+string timestamp
+---
+string robot_id
+string task_id
+string batch_id
+string result_code
+int32 red_count
+int32 yellow_count
+string error_code
+string error_message
+string timestamp
+---
+string robot_id
+string task_id
+string batch_id
+string phase
+int32 red_count
+int32 yellow_count
+string timestamp

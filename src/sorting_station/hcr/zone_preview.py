@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import time
+import uuid
 import cv2
 import numpy as np
 
@@ -91,11 +92,11 @@ def render(frame, rois, observations, zone, color, priority, enabled, edit, coun
         cv2.rectangle(canvas, (x,y), (x+rw,y+rh), tint, 4 if zone == NAMES.index(name)+1 else 1)
         cv2.putText(canvas, f'{name}: {state} R{red:.0%} Y{yellow:.0%}', (x,max(18,y+20)), 0,.45,tint,1)
     chosen = f'{NAMES[zone-1]} / {"RED" if color==1 else "YELLOW"}' if zone else 'NONE'
-    lines = [f'PREVIEW ONLY | priority: {">".join(priority)} | frame {counter}',
+    lines = [f'VISION | priority: {">".join(priority)} | frame {counter}',
              f'Candidate: {chosen} | register 0 = {zone*10+color} | {"LIVE" if enabled else "PAUSED"}',
              'A/B/C/D: select zone, then mouse drag | S: save | Space: pause | Q: quit',
              f'Editing: {edit or "none"} | All 4 non-overlapping zones required. NO_COLOR does not mean empty.',
-             'Dummy snapshot output. Optional Modbus bridge serves values; no START or robot motion.']
+             'Camera candidate above. ROS job / robot command shown below when supervisor is online.']
     for i,line in enumerate(lines):
         cv2.putText(canvas,line,(10,h+26+i*30),0,.48,(230,230,230),1)
     return canvas
@@ -117,6 +118,7 @@ def main():
     p.add_argument('--brightness',type=int,default=60)
     p.add_argument('--config',type=Path)
     p.add_argument('--state',type=Path,default=OUT/'state.json')
+    p.add_argument('--runtime-state',type=Path,default=ROOT/'outputs/sorting_station/hcr_runtime/runtime.json')
     p.add_argument('--headless-frames',type=int,default=0,help='Finite non-GUI smoke test')
     args=p.parse_args()
     args.priority=args.priority.upper()
@@ -129,9 +131,13 @@ def main():
     rois={}; trackers={n:Stable(args.stable_seconds) for n in NAMES}
     enabled=True; editor={'name':None,'start':None}; shape=None; counter=0; total_frames=0; last=None
     cap=None; window='HCR zone preview'; source='demo' if args.demo else args.camera
+    camera_session=str(uuid.uuid4()); latest_states={}; frame_mono=0.0
     atomic_json(args.state,{'timestamp':0,'zone':0,'color':0,'valid':False,'counter':0})
     def publish(zone=0,color=0,stamp=None):
-        atomic_json(args.state,dict(timestamp=time.time() if stamp is None else stamp,zone=zone,color=color,valid=bool(zone),counter=counter))
+        atomic_json(args.state,dict(timestamp=time.time() if stamp is None else stamp,
+                    monotonic=frame_mono, camera_session=camera_session,
+                    ready=stamp is not None and enabled and editor['name'] is None and set(rois)==set(NAMES),
+                    zone_states=latest_states,zone=zone,color=color,valid=bool(zone),counter=counter))
     def mouse(event,x,y,flags,param):
         if editor['name'] is None or shape is None:
             return
@@ -187,10 +193,19 @@ def main():
                 obs[name]=(trackers[name].update(raw,now),r,yellow)
             ready=enabled and editor['name'] is None and set(rois)==set(NAMES)
             zone,color=select({n:v[0] for n,v in obs.items()},args.priority) if ready else (0,0)
+            latest_states={n:v[0] for n,v in obs.items()}; frame_mono=now
             counter=(counter+1)%65536; total_frames+=1; publish(zone,color,stamp)
             if (zone,color)!=last:
                 print(f'PREVIEW zone={zone} color={color} code={zone*10+color}',flush=True); last=(zone,color)
             canvas=render(frame,rois,obs,zone,color,args.priority,enabled,editor['name'],counter)
+            banner='ROS OFFLINE | camera candidate only'
+            try:
+                runtime=json.loads(args.runtime_state.read_text())
+                if 0<=now-runtime.get('monotonic',0)<2:
+                    banner=f"ROS {runtime['phase']} | job {runtime['job_id']} cmd {runtime['command']} | red {runtime['red_count']} yellow {runtime['yellow_count']} | {runtime['error']}"
+            except (OSError,ValueError,KeyError,TypeError): pass
+            canvas=np.vstack((canvas,np.zeros((40,canvas.shape[1],3),np.uint8)))
+            cv2.putText(canvas,banner,(10,canvas.shape[0]-14),0,.45,(100,255,100),1)
             if args.headless_frames:
                 if total_frames>=args.headless_frames:
                     args.state.parent.mkdir(parents=True,exist_ok=True)

@@ -2,7 +2,12 @@
 
 ## HCR-3A 작업
 
-HCR-3A의 D435 A/B/C/D 색상 후보 미리보기와 읽기 전용 Modbus TCP 도구를 포함합니다. 현재 후보는 START 명령이 아니며 로봇 이동·그리퍼 제어·완료 handshake는 미구현입니다.
+HCR-3A 웹캠 A/B/C/D 색상 판정, ROS 2 배치 실행기, Modbus BUSY/DONE handshake, 더미 관제를 포함합니다. Rodi 실물 프로그램과 그리퍼는 현장에서 작성·검증해야 합니다.
+
+- **[노트북에서 순서대로 시작](docs/HCR_LAPTOP_START.md)**
+- **[프로그래밍·실행 PDF](docs/HCR3A_RODI_WORKBOOK_KR.pdf)**
+- [Rodi 단계별 원본](src/sorting_station/hcr_sorting/RODI_PROGRAMMING_GUIDE_KR.md)
+- [ROS 실행기 안내](src/sorting_station/hcr_sorting/README.md)
 
 - [현재 인계](src/sorting_station/HCR3A_CURRENT_HANDOFF.md)
 - [설치·실행 안내](src/sorting_station/hcr/README.md)
