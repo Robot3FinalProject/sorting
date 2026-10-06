@@ -88,12 +88,20 @@ class SorterNode(Node):
         return response
 
     def tick(self):
-        now=time.monotonic()
         events,overflow=self.bank.drain()
+        observation=read_observation(self.camera_state)
+        # Read the frame before sampling time: an atomic camera update between
+        # those operations must not make a fresh frame appear to be in the future.
+        now=time.monotonic()
         if overflow and self.engine.active: self.engine.finish('FAILED','MODBUS_EVENT_OVERFLOW')
-        self.engine.tick(now,read_observation(self.camera_state),events)
+        self.engine.tick(now,observation,events)
         self.bank.update(self.engine.registers())
         view=self.engine.view(now)
+        view['camera_ready']=self.engine.camera_good(now)
+        try:
+            view['camera_age_seconds']=now-observation['monotonic']
+        except (TypeError,KeyError):
+            view['camera_age_seconds']=None
         view['monotonic']=now; view['timestamp']=timestamp()
         temp=self.runtime_state.with_suffix('.tmp')
         temp.write_text(json.dumps(view)); os.replace(temp,self.runtime_state)

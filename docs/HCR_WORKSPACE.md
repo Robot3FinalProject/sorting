@@ -1,5 +1,7 @@
 # HCR-3A 선별장 작업공간
 
+> 최신 인수인계 (2026-10-06): [데스크탑 실행·복구·현장 상태](HCR3A_DESKTOP_HANDOFF.md)를 먼저 확인하세요. 아래는 작성 당시 기록이며 상태 쓰레드·그리퍼·DDS·카메라 설정은 최신 인수인계를 우선합니다.
+
 2026-10-01 갱신. 현재 실행 기준은 [노트북 시작 안내](HCR_LAPTOP_START.md)와 [Rodi 가이드](../src/sorting_station/hcr_sorting/RODI_PROGRAMMING_GUIDE_KR.md)다.
 
 HCR 웹캠/ROS/Modbus 실행기를 src/sorting_station/hcr 및 hcr_sorting에, ROS 타입을 src/smartfarm_interfaces에 둔다. OMX 코드는 기존대로 보존한다. 수확 SO-ARM101 코드는 포함하지 않는다.

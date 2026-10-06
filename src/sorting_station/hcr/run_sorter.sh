@@ -8,4 +8,5 @@ if [[ ! -f outputs/sorting_station/ros2/install/setup.bash ]]; then
   exit 1
 fi
 source outputs/sorting_station/ros2/install/setup.bash
+source "$hcr_root/src/sorting_station/hcr/ros_local_env.sh"
 exec /usr/bin/python3 -c 'from hcr_sorting.node import main; main()' "$@"

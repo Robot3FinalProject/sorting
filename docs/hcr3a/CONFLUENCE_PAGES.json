@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-06",
+  "cloudId": "679219f0-48b6-41d9-9573-e452863258e8",
+  "spaceId": "65840",
+  "parentId": "6651953",
+  "pages": [
+    {
+      "file": "docs/hcr3a/00_OVERVIEW.md",
+      "id": "30343169",
+      "title": "HCR-3A 선별장 구현 완료 및 운영 인수인계",
+      "url": "https://robot3final.atlassian.net/wiki/spaces/3/pages/30343169"
+    },
+    {
+      "file": "docs/hcr3a/01_SETUP.md",
+      "id": "29884432",
+      "title": "HCR-3A 작업공간·설치·네트워크",
+      "url": "https://robot3final.atlassian.net/wiki/spaces/3/pages/29884432"
+    },
+    {
+      "file": "docs/hcr3a/02_VISION.md",
+      "id": "29884461",
+      "title": "HCR-3A 카메라와 A~D 색상 인식",
+      "url": "https://robot3final.atlassian.net/wiki/spaces/3/pages/29884461"
+    },
+    {
+      "file": "docs/hcr3a/03_RODI_GRIPPER.md",
+      "id": "29720603",
+      "title": "HCR-3A Rodi 프로그램·위치 티칭·그리퍼",
+      "url": "https://robot3final.atlassian.net/wiki/spaces/3/pages/29720603"
+    },
+    {
+      "file": "docs/hcr3a/04_OPERATIONS.md",
+      "id": "29949967",
+      "title": "HCR-3A 실행·테스트·종료 안내",
+      "url": "https://robot3final.atlassian.net/wiki/spaces/3/pages/29949967"
+    },
+    {
+      "file": "docs/hcr3a/05_TROUBLESHOOTING.md",
+      "id": "30081029",
+      "title": "HCR-3A 문제 해결 기록",
+      "url": "https://robot3final.atlassian.net/wiki/spaces/3/pages/30081029"
+    },
+    {
+      "file": "docs/hcr3a/06_VALIDATION_HISTORY.md",
+      "id": "29949996",
+      "title": "HCR-3A 검증 결과·산출물·변경 이력",
+      "url": "https://robot3final.atlassian.net/wiki/spaces/3/pages/29949996"
+    }
+  ],
+  "updatedExistingPages": [
+    {
+      "id": "12746755",
+      "url": "https://robot3final.atlassian.net/wiki/spaces/3/pages/12746755"
+    },
+    {
+      "id": "5734447",
+      "url": "https://robot3final.atlassian.net/wiki/spaces/3/pages/5734447"
+    },
+    {
+      "id": "6651953",
+      "url": "https://robot3final.atlassian.net/wiki/spaces/3/pages/6651953"
+    },
+    {
+      "id": "24346735",
+      "url": "https://robot3final.atlassian.net/wiki/spaces/3/pages/24346735"
+    }
+  ],
+  "photoAttachment": {
+    "id": "att30179332",
+    "fileId": "1d70c4a7-1172-4cfe-b126-f9404a8065b1",
+    "collection": "contentId-30343169"
+  }
+}

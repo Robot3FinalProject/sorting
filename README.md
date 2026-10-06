@@ -2,7 +2,13 @@
 
 ## HCR-3A 작업
 
-HCR-3A 웹캠 A/B/C/D 색상 판정, ROS 2 배치 실행기, Modbus BUSY/DONE handshake, 더미 관제를 포함합니다. Rodi 실물 프로그램과 그리퍼는 현장에서 작성·검증해야 합니다.
+HCR-3A 웹캠 A/B/C/D 색상 판정, ROS 2 배치 실행기, Modbus BUSY/DONE handshake, 더미 관제를 포함합니다. 2026-10-06 사용자가 선별장 작업 완료를 보고했습니다. 현장 확인 범위와 최종 펜던트 백업 필요 항목은 최신 인수인계를 따릅니다.
+
+- **[데스크탑 인수인계 — 설치·실행·복구·백업](docs/HCR3A_DESKTOP_HANDOFF.md)**
+- **[최신 구현·운영 문서 인덱스](docs/hcr3a/00_OVERVIEW.md)**
+- [ROS/Modbus 실제 구현 명세](docs/hcr3a/07_PROTOCOL_REFERENCE.md)
+
+아래 이전 가이드와 PDF는 작성 당시 기록입니다. 상태 쓰레드, 그리퍼, USB 웹캠 및 DDS 실행 설정은 위 최신 문서를 우선합니다.
 
 - **[노트북에서 순서대로 시작](docs/HCR_LAPTOP_START.md)**
 - **[프로그래밍·실행 PDF](docs/HCR3A_RODI_WORKBOOK_KR.pdf)**
