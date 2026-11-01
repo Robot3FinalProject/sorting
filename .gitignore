@@ -9,3 +9,5 @@ config/hardware.local.env
 .agents/
 .codex/
 .aws/
+# Local research and generated deliverables
+/output/
